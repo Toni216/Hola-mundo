@@ -3,16 +3,16 @@ body {
 }
 
 div {
-    height: 75px;
-    width: 500px;
+    /* height: 75px; */
+    width: 200px;
     background-color: white;
-    margin: 15px;
+    margin: 10px 15px;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+        transition: 0.3s;
 }
 
 .red {
-    border-left: red solid 4px;
-    transition: 0.5s;
+    border-left: red solid 2px;
 }
 
 .red:hover {
@@ -20,19 +20,17 @@ div {
 }
 
 .green {
-    border-left: green solid 4px;
-    transition: 0.5s;
+    border-left: green solid 2px;
 }
 
 .green:hover {
-    box-shadow: 2px 2px 8px ;
+    box-shadow: 0px 2px 8px ;
 }
 
 .blue {
-    border-left: blue solid 4px;
-    transition: 0.5s;
+    border-left: blue solid 2px;
 }
 
 .blue:hover {
-    background-color: rgba(0, 0, 255, 0.1);
+    background-color: #eef;
 }
