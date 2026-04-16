@@ -1,33 +1,15 @@
-console.log('Hola Mundo')
+const resultado1 = 5 < 6
+const resultado2 = 5 > 5
+const resultado3 = 5 > 6
+const resultado4 = 5 > 4
+const resultado5 = 5 <= 5
+const resultado6 = 5 <= 6
+const resultado7 = 5 >= 5
+const resultado8 = 5 >= 6
+const resultado9 = 5 !== '5'
+const resultado10 = 5 != '5'
 
-// var miPrimeraVariable = 'HOLA'
+console.log(resultado9, resultado10)
 
-// let miPrimeraVariable ='Estoy loco'
-// console.log(miPrimeraVariable)
-
-// miPrimeraVariable = 'Esto ha cambiado'
-// console.log(miPrimeraVariable)
-
-// const miPrimerObjeto = {}
-
-const miObjeto = {
-    unNumero: 21,
-    unString: 'Esta cadena',
-    unaCondicion: true,
-}
-
-// console.log(miObjeto)
-
-const arrayVacio = []
-const array = [1,2,'Hola',miObjeto]
-
-console.log(array)
-
-array.push(5)
-arrayVacio.push(5)
-arrayVacio.push(5)
-arrayVacio.push(5)
-arrayVacio.push(5)
-arrayVacio.push(5)
-
-console.log(arrayVacio)
+const resultadoOr = false || true 
+console.log(resultadoOr)
