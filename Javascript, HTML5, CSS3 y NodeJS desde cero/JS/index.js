@@ -24,10 +24,49 @@
 //         break
 // }
 
-const numeros = [1,2,3,4,5]
 
-// console.log(numeros[2]);
 
-for(let i = 0; i < numeros.length; i++) {
-    console.log(numeros[i])
+// function iterar(arg1) {
+//     for(let i = 0; i < arg1.length; i++) {
+//         console.log(arg1[i])
+//     }
+// }
+
+// const numeros = [1, 2, 'Hola', 4, 5]
+// const nombres = ['Pedro', 'Juan' ,'Rajoy' ,'Toni' ,'Roci']
+// iterar(numeros)
+// iterar(nombres)
+
+
+// function suma(a, b) {
+//     return a + b;
+// }
+
+// const resultado = suma(5, 5)
+// const resultado2 = suma(5,6)
+// const resultado3 = suma(resultado,resultado2)
+// console.log(resultado3)
+
+function sumar(a, b, cb) {
+    const r = a + b;
+    cb(r)
 }
+
+function callback(result) {
+    console.log('resultado', result)    
+}
+
+// sumar(2, 3, callback)
+
+//fat arrow functions
+// const miFatArrowFunction = (a, b) => a + b
+// const otraFAF = (a,b) => {
+//     return a + b
+// }
+//  const r = otraFAF(1 , 2)
+//  console.log(r)
+
+
+sumar(2, 3, function (r) {
+    console.log('soy una funcion anonima y mi resultaod es ' + r)
+})
