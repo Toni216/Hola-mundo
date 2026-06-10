@@ -1,26 +1,14 @@
 const express = require('express')
+const user = require('./user.controller')
 const app = express()
 const port = 3000
 
-app.get('/',(req, res) => {
-    res.status(200).send('Rajoy')
-})
-
-app.post('/', (req, res) => {
-    res.status(201).send('creando a rajoy')
-})
-
-app.put('/:id', (req, res) => {
-     res.sendStatus(204)
-})
-
-app.patch('/:id', (req, res) => {
-     res.sendStatus(204)
-})
-
-app.delete('/:id', (req, res) => {
-     res.sendStatus(204)
-})
+app.get('/', user.list)
+app.post('/', user.create)
+app.get('/:id', user.get)
+app.put('/:id', user.update)
+app.patch('/:id', user.update)
+app.delete('/:id', user.destroy)
 
 app.listen(port, () => {
     console.log('Arrancando la aplicación')
