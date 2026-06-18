@@ -12,7 +12,9 @@ const app = express()
 
 app.use(express.json())
 
-const signToken = _id => jwt.sign({ _id }, 'estoy-loco')
+console.log()
+const validateJwt = expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] })
+const signToken = _id => jwt.sign({ _id }, process.env.SECRET)
 
 app.post('/register', async (req, res) => {
     const { body } = req
@@ -54,12 +56,29 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.get('/lele', (req, res, next) => {
-    req.user = { id: 'lele' }
-    next()
-}, (req, res, next) => {
-    console.log('lala', req.user)
-    res.send('ok')
+const findAndAssingUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.auth._id)
+        if (!user) {
+            return res.status(401).end()
+        }
+        req.user = user
+        next()
+    } catch (e) {
+        next(e)
+    } 
+}
+
+const isAuthenticated = express.Router().use(validateJwt, findAndAssingUser)
+
+app.get('/lele', isAuthenticated, (req, res) => {
+    throw new Error('nuevo error')
+    res.send(req.user)
+})
+
+app.use((err, req, res, next) => {
+    console.log('Mi nuevo error', err.stack)
+    next(err)
 })
 
 app.listen(3000, () => {
